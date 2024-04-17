@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   input_validations.c                                :+:      :+:    :+:   */
+/*   initializer.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rsaueia- <rsaueia-@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/11 19:22:03 by rsaueia-          #+#    #+#             */
-/*   Updated: 2024/04/11 19:33:38 by rsaueia-         ###   ########.fr       */
+/*   Created: 2024/04/17 19:24:25 by rsaueia-          #+#    #+#             */
+/*   Updated: 2024/04/17 19:27:08 by rsaueia-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,4 +29,31 @@ int	integer_check(char *str)
 	return (1);
 }
 
+int	add_node(t_stack **s_pile, int value)
+{
+	t_stack	new_node;
 
+	new_node = malloc(sizeof(t_stack));
+	if (!new_node)
+		return (NULL);
+	new_node->value = value;
+	new_node->next = *s_pile;
+	*s_pile = new_node;
+	return (1);
+}
+
+int	data_init(t_stack *data, int argc, char **argv)
+{
+	int	count;
+
+	count = 1;
+	while (argc > count)
+	{
+		if (!integer_check(argv[argc]))
+			return (0);
+		if (!add_node(&data->stack_a, value))
+			return (0);
+		argc--;
+	}
+	return (1);
+}
