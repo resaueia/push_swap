@@ -25,7 +25,9 @@ void    index_set(t_pile pile)
             if (pile1->value > pile2->value)
                 pile1->index++;
             else
-            pile2->index++;
+				pile2->index++;
+			pile2 = pile2->next;
         }
+		pile1 = pile1->next;
     }
 }
