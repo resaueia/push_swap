@@ -18,7 +18,7 @@ void	pile_sort(t_pile **a, t_pile **b)
 
 	size = size_check(*a);
 	*b = NULL;
-	if (size == 2);
+	if (size == 2)
 		sa(a);
 }
 
