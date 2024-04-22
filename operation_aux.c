@@ -6,23 +6,22 @@
 /*   By: rsaueia- <rsaueia-@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/17 19:33:41 by rsaueia-          #+#    #+#             */
-/*   Updated: 2024/04/17 19:58:19 by rsaueia-         ###   ########.fr       */
+/*   Updated: 2024/04/22 20:11:19 by rsaueia-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	swap(t_pile **stack)
+void	swap(t_pile **stack)
 {
 	t_pile	*second;
 
 	if (!stack || !(*stack)->next)
-		return (0);
+		return ;
 	second = (*stack)->next;
 	(*stack)->next = second->next;
 	second->next = *stack;
 	*stack = second;
-	return (0);
 }
 
 /*	SWAP FUNCTION:
@@ -34,17 +33,16 @@ int	swap(t_pile **stack)
 	The 2nd element, then, is now at the top of the pile.
 */
 
-int	push(t_pile **stack_from, t_pile **stack_to)
+void	push(t_pile **stack_from, t_pile **stack_to)
 {
 	t_pile	*first;
 
 	if(!*stack_from)
-		return(0);
+		return ;
 	first = *stack_from;
 	*stack_from = first->next;
 	first->next = *stack_to;
 	*stack_to = first;
-	return (0);
 }
 
 /*	PUSH FUNCTION:
@@ -56,19 +54,18 @@ int	push(t_pile **stack_from, t_pile **stack_to)
 	First element sits at the top of the destination stack.
 */
 
-int	rotate(t_pile **stack)
+void	rotate(t_pile **stack)
 {
 	t_pile	*temp;
 
 	if (!*stack || !(*stack)->next)
-		return (0);
+		return ;
 	*temp = *stack;
 	while (temp->next)
 		temp = temp->next;
 	t_pile *second = (*stack)->next;
 	(*stack)->next = NULL;
 	*stack = second;
-	return (0);
 }
 
 /*	ROTATE FUNCTION:
@@ -80,12 +77,12 @@ int	rotate(t_pile **stack)
 	2nd element is now at the top of the pile.
 */
 
-int	reverse_rotate(t_pile **stack)
+void	reverse_rotate(t_pile **stack)
 {
 	t_pile	*temp;
 
 	if (!*stack || !(*stack)->next)
-		return (0);
+		return ;
 	temp = *stack;
 	while (temp->next->next)
 		temp = temp->next;
@@ -93,7 +90,6 @@ int	reverse_rotate(t_pile **stack)
 	temp->next = NULL;
 	last->next = *stack;
 	*stack = last;
-	return (0);
 }
 
 /*	REVERSE ROTATE FUNCTION:
