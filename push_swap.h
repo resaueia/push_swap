@@ -10,9 +10,26 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#ifndef PUSH_SWAP_H
+#define PUSH_SWAP_H
+
+#include <unistd.h>
+#include <stdlib.h>
+#include <stdio.h>
+
 typedef struct	s_pile
 {
 	int				value;
 	unsigned int	index;
-	s_main			*next;
+	struct s_pile	*next;
 }	t_pile;
+
+typedef struct	s_data
+{
+	t_stack	*stack_a;
+	t_stack	*stack_b;
+}	t_data;
+
+/********** FUNCTION PROTOTYPES **********/
+
+#endif

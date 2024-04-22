@@ -29,16 +29,16 @@ int	integer_check(char *str)
 	return (1);
 }
 
-int	add_node(t_stack **s_pile, int value)
+int	add_node(t_pile **stack, int value)
 {
-	t_stack	new_node;
+	t_pile	new_node;
 
-	new_node = malloc(sizeof(t_stack));
+	new_node = malloc(sizeof(t_pile));
 	if (!new_node)
 		return (NULL);
 	new_node->value = value;
-	new_node->next = *s_pile;
-	*s_pile = new_node;
+	new_node->next = *stack;
+	*stack = new_node;
 	return (1);
 }
 
@@ -49,7 +49,9 @@ int	data_init(t_stack *data, int argc, char **argv)
 	count = 1;
 	while (argc > count)
 	{
-		if (!integer_check(argv[argc]))
+		if (!integer_check(argc[argv]))
+			return (0);
+		if (!min_or_max(argc[argv]))
 			return (0);
 		if (!add_node(&data->stack_a, value))
 			return (0);
