@@ -6,11 +6,21 @@
 /*   By: rsaueia- <rsaueia-@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/20 17:08:23 by rsaueia-          #+#    #+#             */
-/*   Updated: 2024/04/20 19:30:24 by rsaueia-         ###   ########.fr       */
+/*   Updated: 2024/04/23 15:45:15 by rsaueia-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+int	ft_strlen(char *str)
+{
+	int	i;
+
+	i = 0;
+	while(str[i])
+		i++;
+	return (i);
+}
 
 int	sort_check(t_pile *stack)
 {
@@ -69,7 +79,7 @@ int	min_or_max(char *str)
 
 	if (ft_strlen(str) > 11)
 		return (1);
-	n = ft_atol(str);
+	nbr = ft_atol(str);
 	if (nbr > 2147483647 || nbr < -2147483648)
 		return (1);
 	return (0);

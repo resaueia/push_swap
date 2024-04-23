@@ -6,13 +6,19 @@
 #    By: rsaueia- <rsaueia-@student.42.rio>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/04/17 19:24:03 by rsaueia-          #+#    #+#              #
-#    Updated: 2024/04/17 19:24:05 by rsaueia-         ###   ########.fr        #
+#    Updated: 2024/04/23 14:54:13 by rsaueia-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = push_swap
 
-SRC = 
+SRC = general_utils.c \
+	  index_set.c \
+	  initializer.c \
+	  main.c \
+	  operation_aux.c \
+	  operations.c \
+	  sorter.c
 
 OBJS = $(SRC:.c=.o)
 

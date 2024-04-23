@@ -60,7 +60,7 @@ void	rotate(t_pile **stack)
 
 	if (!*stack || !(*stack)->next)
 		return ;
-	*temp = *stack;
+	temp = *stack;
 	while (temp->next)
 		temp = temp->next;
 	t_pile *second = (*stack)->next;

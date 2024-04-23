@@ -6,11 +6,11 @@
 /*   By: rsaueia- <rsaueia-@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/20 17:39:23 by rsaueia-          #+#    #+#             */
-/*   Updated: 2024/04/22 19:55:24 by rsaueia-         ###   ########.fr       */
+/*   Updated: 2024/04/23 16:15:15 by rsaueia-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <push_swap.h>
+#include "push_swap.h"
 
 void	pile_sort(t_pile **a, t_pile **b)
 {
@@ -24,8 +24,8 @@ void	pile_sort(t_pile **a, t_pile **b)
 		three_nodes(a, size);
 	else if (size == 4 || size == 5)
 		four_or_five(a, b, size);
-	else if (size > 5)
-			TBD!!!!!!!!!!!!!!;
+	//else if (size > 5)
+			//TBD!!!!!!!!!!!!!!;
 }
 
 void	three_nodes(t_pile **a, int size)

@@ -10,17 +10,18 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
+#include "push_swap.h"
 
 int	main(int argc, char **argv)
 {
-	t_data	data;
+	t_data	*data;
+
 	data = (t_data){0};
-	if (!data_init(&data, argc, argv))
+	if (!data_init(data, argc, argv))
 		return (1);
-	if (!index_set(data.stack_a))
+	if (!(index_set(data->stack_a)))
 		return (1);
-	stack_sort(&data);
+	pile_sort(&data->stack_a, &data->stack_b);
 	return (0);
 }
 
