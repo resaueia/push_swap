@@ -6,72 +6,90 @@
 /*   By: rsaueia- <rsaueia-@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/20 17:39:23 by rsaueia-          #+#    #+#             */
-/*   Updated: 2024/04/23 16:15:15 by rsaueia-         ###   ########.fr       */
+/*   Updated: 2024/04/24 20:29:39 by rsaueia-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	pile_sort(t_pile **a, t_pile **b)
+void	pile_sort(t_data *data)
 {
 	int	size;
 
-	size = size_check(*a);
-	*b = NULL;
-	if (size == 2)
-		sa(a);
-	else if (size == 3)
-		three_nodes(a, size);
-	else if (size == 4 || size == 5)
-		four_or_five(a, b, size);
-	//else if (size > 5)
-			//TBD!!!!!!!!!!!!!!;
+	size = size_check(data->stack_a);
+	while (!sort_check(data->stack_a) || data->stack_b)
+	{
+		if (size == 2)
+			sa(data);
+		if (size == 3)
+			three_nodes(data);
+		//else if (size == 4 || size == 5)
+		//	four_or_five(data, size);
+		//else if (size > 5)
+				//TBD!!!!!!!!!!!!!!;
+	}
 }
 
-void	three_nodes(t_pile **a, int size)
+void	three_nodes(t_data *data)
 {
-	t_pile	*stack;
+	int	first;
+	int	second;
+	int third;
 
-	stack = NULL;
-	if (*a->index == size)
-		ra(a);
-	stack = *a;
-	if (*a->index == (size - 1))
+	first = data->stack_a->value;
+	second = data->stack_a->next->value;
+	third = data->stack_a->next->next->value;
+
+	if (first < second && first < third && second > third)
 	{
-		stack = stack->next;
-		if (stack->index == size)
-			rra(a);
-		else
-			sa(a);
+		sa(data);
+		ra(data);
 	}
-	else if (sort_check(*a) != 3)
+	else if (first > second && first < third && second < third)
+		sa(data);
+	else if (first < second && first > third && second > third)
+		rra(data);
+	else if (first > second && first > third && second < third)
+		ra(data);
+	else if (first > second && first > third && second > third)
 	{
-		rra(a);
-		sa(a);
+		ra(data);
+		sa(data);
 	}
 }
 
-void	four_or_five(t_pile **a, t_pile **b, int size)
+/* FOR 4 AND 5 ELEMENTS
+if (size == 4)
+	sort_4();
+if (size == 5)
+	sort_5();
+*/
+
+void	four_or_five(t_data *data, int size)
 {
 	int	len;
+	int	a;
+	int	b;
 
+	a = data->stack_a;
+	b = data->stack_b;
 	len = size;
 	while (len != 0)
 	{
-		if(*a->index == 1 || *a->index == 2)
+		if(a->index == 1 || a->index == 2)
 		{
 			pb(a, b);
 			len--;
 			continue;
 		}
-		if (size_check(*b) == 2)
+		if (size_check(b) == 2)
 			break;
 		ra(a);
 		len--;
 	}
-	if (*b->index == 1)
+	if (b->index == 1)
 		sb(b);
-	three_nodes(a, size);
+	three_nodes(data);
 	pa(b, a);;
 	if (b != NULL)
 		pa(b, a);

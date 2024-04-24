@@ -6,7 +6,7 @@
 /*   By: rsaueia- <rsaueia-@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/17 19:24:25 by rsaueia-          #+#    #+#             */
-/*   Updated: 2024/04/17 19:27:08 by rsaueia-         ###   ########.fr       */
+/*   Updated: 2024/04/24 18:00:37 by rsaueia-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ int	add_node(t_pile **stack, int value)
 
 int	data_init(t_data *data, int argc, char **argv)
 {
-	while (argc)
+	while (--argc > 0)
 	{
 		if (!integer_check(argv[argc]))
 			return (0);
@@ -51,7 +51,6 @@ int	data_init(t_data *data, int argc, char **argv)
 			return (0);
 		if (!add_node(&data->stack_a, ft_atol(argv[argc])))
 			return (0);
-		argc--;
 	}
 	return (1);
 }

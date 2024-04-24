@@ -6,35 +6,98 @@
 /*   By: rsaueia- <rsaueia-@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/11 17:08:23 by rsaueia-          #+#    #+#             */
-/*   Updated: 2024/04/17 19:30:24 by rsaueia-         ###   ########.fr       */
+/*   Updated: 2024/04/24 18:54:02 by rsaueia-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
+void	print_stack(t_data *data)
+{
+	t_pile	*a;
+	t_pile	*b;
+
+	a = data->stack_a;
+	b = data->stack_b;
+	if (!a)
+		printf("Empty A.\n");
+	if (!b)
+		printf("Empty B.\n");
+	while (a || b)
+	{
+		if (a)
+		{
+			printf("A: %d.\n", a->value);
+			a = a->next;
+		}
+		if (b)
+		{
+			printf("B: %d.\n", b->value);
+			b = b->next;
+		}
+	}
+}
+
 int	main(int argc, char **argv)
 {
-	t_data	*data;
+	t_data	data;
 
-	data = malloc(sizeof(t_data));
-	data->stack_a = NULL;
-	data->stack_b = NULL;
-	if (!data_init(data, argc - 1, argv))
+	data = (t_data){0};
+	if (!data_init(&data, argc, argv))
 		return (1);
-	//index_set(data->stack_a);
-	
-	
+	index_set(data->stack_a);
 	//while (data->stack_a)
 	
-		printf("%d\n", data->stack_a->next->value);
+		//printf("%d\n", data->stack_a->next->value);
 		//data->stack_a = data->stack_a->next;
 	
 	
-	//pile_sort(&data.stack_a, &data.stack_b);
-	
+	print_stack(&data); //BEFORE.
+	sa(&data);
+	print_stack(&data); //BEFORE.
+	ra(&data);
+	print_stack(&data); //BEFORE.
+	rra(&data);
+	print_stack(&data); //BEFORE.
+	pb(&data);	
+	pb(&data);
+	print_stack(&data); //BEFORE.
+	sb(&data);
+	print_stack(&data); //BEFORE.
+	rb(&data);
+	print_stack(&data); //BEFORE.
+	rrb(&data);
+	print_stack(&data); //BEFORE.
+	ss(&data);
+	print_stack(&data); //BEFORE.
+	rr(&data);
+	print_stack(&data); //BEFORE.
+	rrr(&data);
+	print_stack(&data); //BEFORE.
+	//pile_sort(&data);
+	//print_stack(&data); //AFTER.
 	return (0);
 }
+/*
+int position = func(a);
+position = 3;
 
+if (pos == 2)
+	sa
+else if (pos == 3)
+ra + sa;
+else if (pos == 4)
+rra;
+
+pb;
+three_nodes();
+pa;
+*/
+/*
+2 3 1 -> rra.
+3 1 2 -> ra.
+3 2 1 -> sa + rra || ra + sa.
+*/
 /*	First, we check if all arguments are valid:
 	1- Are they entirely composed of numbers?
 	2- Do they all fit, individually, within the int variable limits?

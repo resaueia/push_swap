@@ -6,7 +6,7 @@
 /*   By: rsaueia- <rsaueia-@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/11 16:03:36 by rsaueia-          #+#    #+#             */
-/*   Updated: 2024/04/23 16:22:26 by rsaueia-         ###   ########.fr       */
+/*   Updated: 2024/04/24 18:54:56 by rsaueia-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,8 +69,8 @@ void		swap(t_pile **stack);
 void		push(t_pile **stack_from, t_pile **stack_to);
 void		rotate(t_pile **stack);
 void		reverse_rotate(t_pile **stack);
-void		pile_sort(t_pile **a, t_pile **b);
-void		three_nodes(t_pile **a, int size);
+void		pile_sort(t_data *data);
+void		three_nodes(t_data *data);
 void		four_or_five(t_pile **a, t_pile **b, int size);
 
 #endif
