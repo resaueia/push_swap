@@ -6,7 +6,7 @@
 #    By: rsaueia- <rsaueia-@student.42.rio>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/04/17 19:24:03 by rsaueia-          #+#    #+#              #
-#    Updated: 2024/04/23 14:54:13 by rsaueia-         ###   ########.fr        #
+#    Updated: 2024/04/24 15:50:28 by rsaueia-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,7 @@ SRC = general_utils.c \
 	  main.c \
 	  operation_aux.c \
 	  operations.c \
-	  sorter.c
+#	  sorter.c
 
 OBJS = $(SRC:.c=.o)
 
@@ -39,7 +39,6 @@ clean:
 fclean:
 	$(RM) $(OBJS) $(NAME)
 
-re:
-	fclean all
+re: fclean all
 
 .PHONY: all clean fclean re

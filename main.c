@@ -16,12 +16,22 @@ int	main(int argc, char **argv)
 {
 	t_data	*data;
 
-	data = (t_data){0};
-	if (!data_init(data, argc, argv))
+	data = malloc(sizeof(t_data));
+	data->stack_a = NULL;
+	data->stack_b = NULL;
+	if (!data_init(data, argc - 1, argv))
 		return (1);
-	if (!(index_set(data->stack_a)))
-		return (1);
-	pile_sort(&data->stack_a, &data->stack_b);
+	//index_set(data->stack_a);
+	
+	
+	//while (data->stack_a)
+	
+		printf("%d\n", data->stack_a->next->value);
+		//data->stack_a = data->stack_a->next;
+	
+	
+	//pile_sort(&data.stack_a, &data.stack_b);
+	
 	return (0);
 }
 
