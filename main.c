@@ -27,12 +27,12 @@ void	print_stack(t_data *data)
 	{
 		if (a)
 		{
-			printf("A: %d.\n", a->value);
+			ft_printf("A: %d.\n", a->value);
 			a = a->next;
 		}
 		if (b)
 		{
-			printf("B: %d.\n", b->value);
+			ft_printf("B: %d.\n", b->value);
 			b = b->next;
 		}
 	}
@@ -45,7 +45,7 @@ int	main(int argc, char **argv)
 	data = (t_data){0};
 	if (!integer_check(argv[1]))
 	{
-		printf("Error.\n");
+		ft_printf("Error.\n");
 		return(1);
 	}
 	else if (!data_init(&data, argc, argv))
