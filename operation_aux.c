@@ -6,7 +6,7 @@
 /*   By: rsaueia- <rsaueia-@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/17 19:33:41 by rsaueia-          #+#    #+#             */
-/*   Updated: 2024/04/25 15:24:03 by rsaueia-         ###   ########.fr       */
+/*   Updated: 2024/04/25 20:11:06 by rsaueia-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ void	swap(t_pile **stack)
 	t_pile	*second;
 
 	if (!stack || !(*stack)->next)
+		return ;
+	if (stack_size(*stack) < 2)
 		return ;
 	second = (*stack)->next;
 	(*stack)->next = second->next;
@@ -37,7 +39,9 @@ void	push(t_pile **stack_from, t_pile **stack_to)
 {
 	t_pile	*first;
 
-	if(!*stack_from)
+	if (!*stack_from)
+		return ;
+	if (stack_size(*stack_from) == 0)
 		return ;
 	first = *stack_from;
 	*stack_from = first->next;
@@ -61,6 +65,8 @@ void	rotate(t_pile **stack)
 
 	if (!*stack || !(*stack)->next)
 		return ;
+	if (stack_size(*stack) < 2)
+		return ;
 	temp = *stack;
 	while (temp->next)
 		temp = temp->next;
@@ -82,13 +88,16 @@ void	rotate(t_pile **stack)
 void	reverse_rotate(t_pile **stack)
 {
 	t_pile	*temp;
+	t_pile	*last;
 
 	if (!*stack || !(*stack)->next)
+		return ;
+	if (size_check(*stack) < 2)
 		return ;
 	temp = *stack;
 	while (temp->next->next)
 		temp = temp->next;
-	t_pile *last = temp->next;
+	last = temp->next;
 	temp->next = NULL;
 	last->next = *stack;
 	*stack = last;

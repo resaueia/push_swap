@@ -6,20 +6,20 @@
 /*   By: rsaueia- <rsaueia-@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/23 14:58:35 by rsaueia-          #+#    #+#             */
-/*   Updated: 2024/04/25 17:12:22 by rsaueia-         ###   ########.fr       */
+/*   Updated: 2024/04/25 19:37:41 by rsaueia-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void    index_set(t_pile *pile)
+void	index_set(t_pile *pile)
 {
-	t_pile  *pile1;
+	t_pile	*pile1;
 	t_pile	*pile2;
 
 	pile1 = pile;
 	pile2 = NULL;
-	while(pile1)
+	while (pile1)
 	{
 		pile2 = pile1;
 		while (pile2)
@@ -34,7 +34,7 @@ void    index_set(t_pile *pile)
 	}
 }
 
-int		duplicate(t_pile *stack)
+int	duplicate(t_pile *stack)
 {
 	t_pile	*current;
 	t_pile	*runner;

@@ -6,7 +6,7 @@
 /*   By: rsaueia- <rsaueia-@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/11 17:08:23 by rsaueia-          #+#    #+#             */
-/*   Updated: 2024/04/25 18:50:59 by rsaueia-         ###   ########.fr       */
+/*   Updated: 2024/04/25 19:43:01 by rsaueia-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,9 @@ void	print_stack(t_data *data)
 	a = data->stack_a;
 	b = data->stack_b;
 	if (!a)
-		printf("Empty A.\n");
+		ft_printf("Empty A.\n");
 	if (!b)
-		printf("Empty B.\n");
+		ft_printf("Empty B.\n");
 	while (a || b)
 	{
 		if (a)
@@ -46,12 +46,15 @@ int	main(int argc, char **argv)
 	if (!integer_check(argv[1]))
 	{
 		ft_printf("Error.\n");
-		return(1);
+		return (1);
 	}
 	else if (!data_init(&data, argc, argv))
 		return (1);
 	else if (duplicate(data.stack_a))
+	{
+		ft_printf("Error.")
 		return (1);
+	}
 	else if (sort_check(data.stack_a))
 		return (0);
 	index_set(data.stack_a);
@@ -60,7 +63,6 @@ int	main(int argc, char **argv)
 	//while (data->stack_a)
 		//printf("%d\n", data->stack_a->next->value);
 		//data->stack_a = data->stack_a->next;
-	
 /*	
 	print_stack(&data); //BEFORE.
 	sa(&data);

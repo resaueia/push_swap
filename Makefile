@@ -6,7 +6,7 @@
 #    By: rsaueia- <rsaueia-@student.42.rio>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/04/17 19:24:03 by rsaueia-          #+#    #+#              #
-#    Updated: 2024/04/25 19:13:34 by rsaueia-         ###   ########.fr        #
+#    Updated: 2024/04/25 19:29:52 by rsaueia-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -38,12 +38,17 @@ $(NAME): $(PRINTF_ARCHIVE) $(NAME)
 all: $(NAME)
 
 $(NAME): $(OBJS)
-	$(CC) $(CFLAGS) $(OBJS) -o $(NAME)
+	$(CC) $(CFLAGS) $(OBJS) $(PRINTF_ARCHIVE) -o $(NAME)
+
+$(PRINTF_ARCHIVE):
+	make -C $(PRINTF_PATH)
 
 clean:
+	make -C $(PRINTF_PATH) clean
 	$(RM) $(OBJS)
 
-fclean:
+fclean: clean
+	make -C $(PRINTF_PATH) fclean
 	$(RM) $(OBJS) $(NAME)
 
 re: fclean all

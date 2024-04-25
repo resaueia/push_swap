@@ -6,25 +6,25 @@
 /*   By: rsaueia- <rsaueia-@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/11 16:03:36 by rsaueia-          #+#    #+#             */
-/*   Updated: 2024/04/24 18:54:56 by rsaueia-         ###   ########.fr       */
+/*   Updated: 2024/04/25 19:51:12 by rsaueia-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
-#define PUSH_SWAP_H
+# define PUSH_SWAP_H
 
-#include <unistd.h>
-#include <stdlib.h>
-#include <stdio.h>
+# include <unistd.h>
+# include <stdlib.h>
+# include "printf/ft_printf.h"
 
-typedef struct	s_pile
+typedef struct s_pile
 {
 	int				value;
 	unsigned int	index;
 	struct s_pile	*next;
 }	t_pile;
 
-typedef struct	s_data
+typedef struct s_data
 {
 	t_pile	*stack_a;
 	t_pile	*stack_b;
@@ -72,7 +72,7 @@ void		rotate(t_pile **stack);
 void		reverse_rotate(t_pile **stack);
 void		pile_sort(t_data *data);
 void		three_nodes(t_data *data);
-void		four_or_five(t_pile **a, t_pile **b, int size);
+void		four_or_five(t_data *data, int size);
 void		big_free(t_pile *stack);
 
 #endif
