@@ -6,7 +6,7 @@
 /*   By: rsaueia- <rsaueia-@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/11 17:08:23 by rsaueia-          #+#    #+#             */
-/*   Updated: 2024/04/25 19:43:01 by rsaueia-         ###   ########.fr       */
+/*   Updated: 2024/04/25 20:16:38 by rsaueia-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,13 +52,15 @@ int	main(int argc, char **argv)
 		return (1);
 	else if (duplicate(data.stack_a))
 	{
-		ft_printf("Error.")
+		ft_printf("Error.");
 		return (1);
 	}
 	else if (sort_check(data.stack_a))
 		return (0);
 	index_set(data.stack_a);
 	pile_sort(&data);
+	big_free(data.stack_b);
+	big_free(data.stack_a);
 	return (0);
 	//while (data->stack_a)
 		//printf("%d\n", data->stack_a->next->value);
