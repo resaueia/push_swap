@@ -6,7 +6,7 @@
 /*   By: rsaueia- <rsaueia-@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/23 14:58:35 by rsaueia-          #+#    #+#             */
-/*   Updated: 2024/04/23 15:50:46 by rsaueia-         ###   ########.fr       */
+/*   Updated: 2024/04/25 17:12:22 by rsaueia-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,5 +31,40 @@ void    index_set(t_pile *pile)
 			pile2 = pile2->next;
 		}
 		pile1 = pile1->next;
+	}
+}
+
+int		duplicate(t_pile *stack)
+{
+	t_pile	*current;
+	t_pile	*runner;
+
+	current = stack;
+	while (current != NULL)
+	{
+		runner = current->next;
+		while (runner != NULL)
+		{
+			if (runner->value == current->value)
+				return (1);
+			runner = runner->next;
+		}
+		current = current->next;
+	}
+	return (0);
+}
+
+void	big_free(t_pile *stack)
+{
+	t_pile	*temp;
+	int		i;
+
+	i = 1;
+	while (stack)
+	{
+		temp = stack;
+		stack = stack->next;
+		free(temp);
+		i++;
 	}
 }

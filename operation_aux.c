@@ -6,7 +6,7 @@
 /*   By: rsaueia- <rsaueia-@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/17 19:33:41 by rsaueia-          #+#    #+#             */
-/*   Updated: 2024/04/22 20:11:19 by rsaueia-         ###   ########.fr       */
+/*   Updated: 2024/04/25 15:24:03 by rsaueia-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,13 +57,15 @@ void	push(t_pile **stack_from, t_pile **stack_to)
 void	rotate(t_pile **stack)
 {
 	t_pile	*temp;
+	t_pile	*second;
 
 	if (!*stack || !(*stack)->next)
 		return ;
 	temp = *stack;
 	while (temp->next)
 		temp = temp->next;
-	t_pile *second = (*stack)->next;
+	temp->next = *stack;
+	second = (*stack)->next;
 	(*stack)->next = NULL;
 	*stack = second;
 }

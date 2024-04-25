@@ -6,7 +6,7 @@
 #    By: rsaueia- <rsaueia-@student.42.rio>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/04/17 19:24:03 by rsaueia-          #+#    #+#              #
-#    Updated: 2024/04/24 18:23:27 by rsaueia-         ###   ########.fr        #
+#    Updated: 2024/04/25 19:13:34 by rsaueia-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,6 +27,13 @@ CC = gcc
 CFLAGS = -Wall -Wextra -Werror
 
 RM = rm -f
+
+PRINTF_PATH = printf
+
+PRINTF_ARCHIVE = $(PRINTF_PATH)/libftprintf.a
+
+$(NAME): $(PRINTF_ARCHIVE) $(NAME)
+	ar rcs $(NAME)
 
 all: $(NAME)
 

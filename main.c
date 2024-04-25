@@ -6,7 +6,7 @@
 /*   By: rsaueia- <rsaueia-@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/11 17:08:23 by rsaueia-          #+#    #+#             */
-/*   Updated: 2024/04/24 18:54:02 by rsaueia-         ###   ########.fr       */
+/*   Updated: 2024/04/25 18:50:59 by rsaueia-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,15 +43,25 @@ int	main(int argc, char **argv)
 	t_data	data;
 
 	data = (t_data){0};
-	if (!data_init(&data, argc, argv))
+	if (!integer_check(argv[1]))
+	{
+		printf("Error.\n");
+		return(1);
+	}
+	else if (!data_init(&data, argc, argv))
 		return (1);
-	index_set(data->stack_a);
+	else if (duplicate(data.stack_a))
+		return (1);
+	else if (sort_check(data.stack_a))
+		return (0);
+	index_set(data.stack_a);
+	pile_sort(&data);
+	return (0);
 	//while (data->stack_a)
-	
 		//printf("%d\n", data->stack_a->next->value);
 		//data->stack_a = data->stack_a->next;
 	
-	
+/*	
 	print_stack(&data); //BEFORE.
 	sa(&data);
 	print_stack(&data); //BEFORE.
@@ -59,7 +69,8 @@ int	main(int argc, char **argv)
 	print_stack(&data); //BEFORE.
 	rra(&data);
 	print_stack(&data); //BEFORE.
-	pb(&data);	
+	pb(&data);
+	pb(&data);
 	pb(&data);
 	print_stack(&data); //BEFORE.
 	sb(&data);
@@ -76,7 +87,7 @@ int	main(int argc, char **argv)
 	print_stack(&data); //BEFORE.
 	//pile_sort(&data);
 	//print_stack(&data); //AFTER.
-	return (0);
+	return (0);*/
 }
 /*
 int position = func(a);
@@ -92,6 +103,7 @@ rra;
 pb;
 three_nodes();
 pa;
+
 */
 /*
 2 3 1 -> rra.
