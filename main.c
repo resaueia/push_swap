@@ -44,11 +44,11 @@ void	print_list(t_pile *list)
 	t_pile	*temp;
 
 	temp = list;
-	ft_printf("LINKED_LIST:\n");
+	ft_printf("-----LINKED LIST-----:\n");
 	while (temp)
 	{
-		ft_printf("Endereço desse nó: %p - Valor: %d - Índice: %i \
-			- Endereço next: %x\n", temp, temp->value, temp->index, temp->next);
+		ft_printf("Node address: %p - Value: %d - Index: %i \
+			- Next node address: %x\n", temp, temp->value, temp->index, temp->next);
 		temp = temp->next;
 	}
 	free(temp);
@@ -69,7 +69,10 @@ int	main(int argc, char **argv)
 
 	//print_list(data.stack_a);
 	pile_sort(&data);
-	//print_list(data.stack_a);
+/*	ft_printf("LISTA A: \n");
+	print_list(data.stack_a);
+	ft_printf("LISTA B: \n");
+	print_list(data.stack_b);*/
 
 	if (data.stack_b)
 		big_free(data.stack_b);

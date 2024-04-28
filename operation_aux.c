@@ -46,8 +46,8 @@ void	push(t_pile **stack_from, t_pile **stack_to)
 	if (stack_to == NULL)
 	{
 		*stack_to = *stack_from;
-		*stack_from = (*stack_from)->next;
 		(*stack_to)->next = NULL;
+		*stack_from = (*stack_from)->next;
 	}
 	else
 	{

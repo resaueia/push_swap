@@ -62,7 +62,7 @@ int	data_init(t_data *data, int argc, char **argv)
 		{
 			ft_printf("erro duplicate.\n");
         		write(2, "Error\n", 6);
-        		return (1);
+        		return (0);
 		}
 	}
 	return (1);

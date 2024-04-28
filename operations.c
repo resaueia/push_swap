@@ -44,10 +44,10 @@ void	pa(t_pile **stack_b, t_pile **stack_a)
 void	pb(t_pile **stack_a, t_pile **stack_b)
 {
 	push(stack_a, stack_b);
-	ft_printf("stack a: \n");
-	print_list(*stack_a);
-	ft_printf("stack b: \n");
-	print_list(*stack_b);
+	//ft_printf("stack a: \n");
+	//print_list(*stack_a);
+	//ft_printf("stack b: \n");
+//	print_list(*stack_b);
 	ft_printf("pb\n");
 }
 
