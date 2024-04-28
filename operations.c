@@ -6,7 +6,7 @@
 /*   By: rsaueia- <rsaueia-@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/23 16:20:36 by rsaueia-          #+#    #+#             */
-/*   Updated: 2024/04/25 19:41:14 by rsaueia-         ###   ########.fr       */
+/*   Updated: 2024/04/27 17:58:47 by rsaueia-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,88 +14,81 @@
 
 /****** SWAP OPERATIONS ******/
 
-int	sa(t_data *data)
+void	sa(t_pile **stack)
 {
-	swap(&data->stack_a);
+	swap(stack);
 	ft_printf("sa\n");
-	return (0);
 }
 
-int	sb(t_data *data)
+void	sb(t_pile **stack)
 {
-	swap(&data->stack_b);
+	swap(stack);
 	ft_printf("sb\n");
-	return (0);
 }
 
-int	ss(t_data *data)
+void	ss(t_pile **stack_a, t_pile **stack_b)
 {
-	swap(&data->stack_a);
-	swap(&data->stack_b);
+	swap(stack_a);
+	swap(stack_b);
 	ft_printf("ss\n");
-	return (0);
 }
 
 /****** PUSH OPERATIONS ******/
 
-int	pa(t_data *data)
+void	pa(t_pile **stack_b, t_pile **stack_a)
 {
-	push(&data->stack_b, &data->stack_a);
+	push(stack_b, stack_a);
 	ft_printf("pa\n");
-	return (0);
 }
 
-int	pb(t_data *data)
+void	pb(t_pile **stack_a, t_pile **stack_b)
 {
-	push(&data->stack_a, &data->stack_b);
+	push(stack_a, stack_b);
+	ft_printf("stack a: \n");
+	print_list(*stack_a);
+	ft_printf("stack b: \n");
+	print_list(*stack_b);
 	ft_printf("pb\n");
-	return (0);
 }
 
 /****** REVERSE OPERATIONS ******/
 
-int	ra(t_data *data)
+void	ra(t_pile **stack)
 {
-	rotate(&data->stack_a);
+	rotate(stack);
 	ft_printf("ra\n");
-	return (0);
 }
 
-int	rb(t_data *data)
+void	rb(t_pile **stack)
 {
-	rotate(&data->stack_b);
+	rotate(stack);
 	ft_printf("rb\n");
-	return (0);
 }
 
-int	rr(t_data *data)
+void	rr(t_pile **stack_a, t_pile **stack_b)
 {
-	rotate(&data->stack_a);
-	rotate(&data->stack_b);
+	rotate(stack_a);
+	rotate(stack_b);
 	ft_printf("rr");
-	return (0);
 }
 
 /****** REVERSE ROTATE OPERATIONS ******/
 
-int	rra(t_data *data)
+void	rra(t_pile **stack)
 {
-	reverse_rotate(&data->stack_a);
+	reverse_rotate(stack);
 	ft_printf("rra\n");
-	return (0);
 }
 
-int	rrb(t_data *data)
+void	rrb(t_pile **stack)
 {
-	reverse_rotate(&data->stack_b);
+	reverse_rotate(stack);
 	ft_printf("rrb\n");
-	return (0);
 }
 
-int	rrr(t_data *data)
+void	rrr(t_pile **stack_a, t_pile **stack_b)
 {
-	reverse_rotate(&data->stack_a);
-	reverse_rotate(&data->stack_b);
+	reverse_rotate(stack_a);
+	reverse_rotate(stack_b);
 	ft_printf("rrr\n");
-	return (0);
 }

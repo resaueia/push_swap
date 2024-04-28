@@ -6,7 +6,7 @@
 /*   By: rsaueia- <rsaueia-@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/11 17:08:23 by rsaueia-          #+#    #+#             */
-/*   Updated: 2024/04/25 20:16:38 by rsaueia-         ###   ########.fr       */
+/*   Updated: 2024/04/27 15:56:47 by rsaueia-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ void	print_stack(t_data *data)
 		if (a)
 		{
 			ft_printf("A: %d.\n", a->value);
+			//ft_printf("index: %d.\n", a->index);
 			a = a->next;
 		}
 		if (b)
@@ -38,28 +39,40 @@ void	print_stack(t_data *data)
 	}
 }
 
+void	print_list(t_pile *list)
+{
+	t_pile	*temp;
+
+	temp = list;
+	ft_printf("LINKED_LIST:\n");
+	while (temp)
+	{
+		ft_printf("Endereço desse nó: %p - Valor: %d - Índice: %i \
+			- Endereço next: %x\n", temp, temp->value, temp->index, temp->next);
+		temp = temp->next;
+	}
+	free(temp);
+}
+
 int	main(int argc, char **argv)
 {
 	t_data	data;
 
-	data = (t_data){0};
-	if (!integer_check(argv[1]))
-	{
-		ft_printf("Error.\n");
-		return (1);
-	}
-	else if (!data_init(&data, argc, argv))
-		return (1);
-	else if (duplicate(data.stack_a))
-	{
-		ft_printf("Error.");
-		return (1);
-	}
-	else if (sort_check(data.stack_a))
+	//data = (t_data){0};
+	data.stack_a = NULL;
+	data.stack_b = NULL;
+	if (!data_init(&data, argc, argv))
+		return (1);	
+	if (sort_check(data.stack_a))
 		return (0);
 	index_set(data.stack_a);
+
+	//print_list(data.stack_a);
 	pile_sort(&data);
-	big_free(data.stack_b);
+	//print_list(data.stack_a);
+
+	if (data.stack_b)
+		big_free(data.stack_b);
 	big_free(data.stack_a);
 	return (0);
 	//while (data->stack_a)

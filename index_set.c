@@ -6,7 +6,7 @@
 /*   By: rsaueia- <rsaueia-@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/23 14:58:35 by rsaueia-          #+#    #+#             */
-/*   Updated: 2024/04/25 19:37:41 by rsaueia-         ###   ########.fr       */
+/*   Updated: 2024/04/27 19:03:57 by rsaueia-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,14 +57,14 @@ int	duplicate(t_pile *stack)
 void	big_free(t_pile *stack)
 {
 	t_pile	*temp;
-	int		i;
-
-	i = 1;
-	while (stack)
+	t_pile	*head;
+	
+	head = stack;
+	while (head)
 	{
-		temp = stack;
-		stack = stack->next;
+		temp = head;
+		head = head->next;
 		free(temp);
-		i++;
 	}
+	//free(stack);
 }

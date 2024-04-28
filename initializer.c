@@ -6,7 +6,7 @@
 /*   By: rsaueia- <rsaueia-@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/17 19:24:25 by rsaueia-          #+#    #+#             */
-/*   Updated: 2024/04/24 18:00:37 by rsaueia-         ###   ########.fr       */
+/*   Updated: 2024/04/26 17:39:51 by rsaueia-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,11 +46,24 @@ int	data_init(t_data *data, int argc, char **argv)
 	while (--argc > 0)
 	{
 		if (!integer_check(argv[argc]))
+		{
+			ft_printf("erro integer check\n");
+			write(2, "Error\n", 6);
 			return (0);
+		}
 		if (!min_or_max(argv[argc]))
+		{
+			write(2, "Error\n", 6);
 			return (0);
+		}
 		if (!add_node(&data->stack_a, ft_atol(argv[argc])))
 			return (0);
+		if (duplicate(data->stack_a))
+		{
+			ft_printf("erro duplicate.\n");
+        		write(2, "Error\n", 6);
+        		return (1);
+		}
 	}
 	return (1);
 }

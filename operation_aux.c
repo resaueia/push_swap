@@ -6,7 +6,7 @@
 /*   By: rsaueia- <rsaueia-@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/17 19:33:41 by rsaueia-          #+#    #+#             */
-/*   Updated: 2024/04/25 20:17:40 by rsaueia-         ###   ########.fr       */
+/*   Updated: 2024/04/27 19:07:44 by rsaueia-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,10 +43,19 @@ void	push(t_pile **stack_from, t_pile **stack_to)
 		return ;
 	if (size_check(*stack_from) == 0)
 		return ;
-	first = *stack_from;
-	*stack_from = first->next;
-	first->next = *stack_to;
-	*stack_to = first;
+	if (stack_to == NULL)
+	{
+		*stack_to = *stack_from;
+		*stack_from = (*stack_from)->next;
+		(*stack_to)->next = NULL;
+	}
+	else
+	{
+		first = *stack_to;
+		*stack_to = *stack_from;
+		*stack_from = (*stack_from)->next;
+		(*stack_to)->next = first;
+	}
 }
 
 /*	PUSH FUNCTION:

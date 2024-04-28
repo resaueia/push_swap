@@ -6,7 +6,7 @@
 /*   By: rsaueia- <rsaueia-@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/11 16:03:36 by rsaueia-          #+#    #+#             */
-/*   Updated: 2024/04/25 19:51:12 by rsaueia-         ###   ########.fr       */
+/*   Updated: 2024/04/27 20:51:38 by rsaueia-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,26 +42,26 @@ int			duplicate(t_pile *stack);
 
 //SWAP OPS
 
-int			sa(t_data *data);
-int			sb(t_data *data);
-int			ss(t_data *data);
+void			sa(t_pile **stack);
+void			sb(t_pile **stack);
+void			ss(t_pile **stack_a, t_pile **stack_b);
 
 //PUSH OPS
 
-int			pa(t_data *data);
-int			pb(t_data *data);
+void			pa(t_pile **stack_a, t_pile **stack_b);
+void			pb(t_pile **stack_a, t_pile **stack_b);
 
 //REVERSE OPS
 
-int			ra(t_data *data);
-int			rb(t_data *data);
-int			rr(t_data *data);
+void			ra(t_pile **stack);
+void			rb(t_pile **stack);
+void			rr(t_pile **stack_a, t_pile **stack_b);
 
 //REVERSE ROTATE OPS
 
-int			rra(t_data *data);
-int			rrb(t_data *data);
-int			rrr(t_data *data);
+void			rra(t_pile **stack);
+void			rrb(t_pile **stack);
+void			rrr(t_pile **stack_a, t_pile **stack_b);
 
 long int	ft_atol(char *str);
 
@@ -71,8 +71,12 @@ void		push(t_pile **stack_from, t_pile **stack_to);
 void		rotate(t_pile **stack);
 void		reverse_rotate(t_pile **stack);
 void		pile_sort(t_data *data);
-void		three_nodes(t_data *data);
-void		four_or_five(t_data *data, int size);
+void		three_nodes(t_pile **a, t_pile **b);
+void		four_or_five(t_pile **a, t_pile **b, int size);
 void		big_free(t_pile *stack);
+void		print_list(t_pile *list);
+void		print_stack(t_data *data);
+void		big_sort(t_pile **a, t_pile **b);
+void		radix_sort(t_pile **a, t_pile **b, int bin);
 
 #endif
