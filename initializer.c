@@ -6,7 +6,7 @@
 /*   By: rsaueia- <rsaueia-@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/17 19:24:25 by rsaueia-          #+#    #+#             */
-/*   Updated: 2024/04/26 17:39:51 by rsaueia-         ###   ########.fr       */
+/*   Updated: 2024/04/29 20:43:43 by rsaueia-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ int	add_node(t_pile **stack, int value)
 {
 	t_pile	*new_node;
 
-	new_node = malloc(sizeof(t_pile));
+	new_node = ft_calloc(sizeof(t_pile), 1);
 	if (!new_node)
 		return (0);
 	new_node->value = value;
@@ -47,7 +47,6 @@ int	data_init(t_data *data, int argc, char **argv)
 	{
 		if (!integer_check(argv[argc]))
 		{
-			ft_printf("erro integer check\n");
 			write(2, "Error\n", 6);
 			return (0);
 		}
@@ -60,10 +59,10 @@ int	data_init(t_data *data, int argc, char **argv)
 			return (0);
 		if (duplicate(data->stack_a))
 		{
-			ft_printf("erro duplicate.\n");
-        		write(2, "Error\n", 6);
-        		return (0);
+			write(2, "Error\n", 6);
+			big_free(data->stack_a);
+			return (0);
 		}
-	}
+	}	
 	return (1);
 }

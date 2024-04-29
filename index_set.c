@@ -6,7 +6,7 @@
 /*   By: rsaueia- <rsaueia-@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/23 14:58:35 by rsaueia-          #+#    #+#             */
-/*   Updated: 2024/04/27 19:03:57 by rsaueia-         ###   ########.fr       */
+/*   Updated: 2024/04/29 20:43:18 by rsaueia-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,11 +54,37 @@ int	duplicate(t_pile *stack)
 	return (0);
 }
 
+void	ft_bzero(void *s, size_t n)
+{
+	unsigned char	*holder;
+
+	holder = (unsigned char *)s;
+	while (n > 0)
+	{
+		*holder = 0;
+		holder++;
+		n--;
+	}
+}
+
+void	*ft_calloc(size_t nmemb, size_t size)
+{
+	size_t	total_size;
+	void	*ptr;
+
+	total_size = nmemb * size;
+	ptr = malloc(total_size);
+	if (!ptr)
+		return (NULL);
+	ft_bzero(ptr, total_size);
+	return (ptr);
+}
+
 void	big_free(t_pile *stack)
 {
 	t_pile	*temp;
 	t_pile	*head;
-	
+
 	head = stack;
 	while (head)
 	{
@@ -66,5 +92,4 @@ void	big_free(t_pile *stack)
 		head = head->next;
 		free(temp);
 	}
-	//free(stack);
 }

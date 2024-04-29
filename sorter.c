@@ -6,7 +6,7 @@
 /*   By: rsaueia- <rsaueia-@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/20 17:39:23 by rsaueia-          #+#    #+#             */
-/*   Updated: 2024/04/27 18:25:50 by rsaueia-         ###   ########.fr       */
+/*   Updated: 2024/04/29 20:37:39 by rsaueia-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,18 +21,16 @@ void	pile_sort(t_data *data)
 	if (size == 2)
 		sa(&(data->stack_a));
 	else if (size == 3)
-		three_nodes(&(data->stack_a), &(data->stack_b));
+		three_nodes(&(data->stack_a));
 	else if (size == 4 || size == 5)
 	{
-	//	ft_printf("endereço a: %p\n", data->stack_a);
 		four_or_five(&(data->stack_a), &(data->stack_b), size);
 	}
 	else if (size > 5)
 		big_sort(&(data->stack_a), &(data->stack_b));
 }
 
-//void	three_nodes(t_data *data)
-void	three_nodes(t_pile **a, t_pile **b)
+void	three_nodes(t_pile **a)
 {
 	int	first;
 	int	second;
@@ -42,48 +40,23 @@ void	three_nodes(t_pile **a, t_pile **b)
 	second = (*a)->next->value;
 	third = (*a)->next->next->value;
 
-	(void)b;
 	if (first < second && first < third && second > third)
 	{
 		sa(a);
 		ra(a);
-		//sa(data);
-		//ra(data);
 	}
 	else if (first > second && first < third && second < third)
 		sa(a);
-	//	sa(data);
 	else if (first < second && first > third && second > third)
 		rra(a);
-		//rra(data);
 	else if (first > second && first > third && second < third)
 		ra(a);
-		//ra(data);
 	else if (first > second && first > third && second > third)
 	{
 		ra(a);
 		sa(a);
-		//ra(data);
-		//sa(data);
 	}
 }
-/*
- FOR 4 AND 5 ELEMENTS
-if (size == 4)
-	sort_4();
-if (size == 5)
-	sort_5();
-
-
-int	position(t_data *data)
-{
-	
-}
-*/
-
-
-
-//sort -> find the lowest number, push b; call sort_three, push a;
 
 void	four_or_five(t_pile **a, t_pile **b, int size)
 {
@@ -101,7 +74,7 @@ void	four_or_five(t_pile **a, t_pile **b, int size)
 	}
 	if ((*b)->index == 1 && size == 5)
 		sb(b);
-	three_nodes(a, b);
+	three_nodes(a);
 	pa(b, a);
 	if (size == 5)
 		pa(b, a);
@@ -127,40 +100,25 @@ void	big_sort(t_pile **a, t_pile **b)
 void	radix_sort(t_pile **a, t_pile **b, int bin)
 {
 	int	size;
-	//int	ctrl;
+	int	count = 0;
 	
-	//ctrl = 0;
 	size = size_check(*a);
 	while (*a && size != 0)
 	{
-		//ft_printf("lista a: \n");
-		//print_list(*a);	
 		if (!((*a)->index & bin))
 		{	
-			//ft_printf("entrou no if\n");
 			pb(a, b);
-			//ctrl++;
+			count++;
 		}
 		else
 		{
-			//ft_printf("entrou no else\n");
 			ra(a);
 		}
-		//print_list(*a);
-		//ft_printf("reduzindo size: %d\n", size);
 		size--;
-		/*if (size == 5)
-			break;*/
 	}
-	//ra(a);
-	//print_list(*a);
-	//pb(a, b);
-	//pb(a, b);
-	while (*b)
-		pa(b, a);
-	/*while (ctrl > 0)
+	while (count)
 	{
 		pa(b, a);
-		ctrl--;
-	}*/
+		count--;
+	}
 }

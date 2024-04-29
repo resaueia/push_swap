@@ -6,7 +6,7 @@
 /*   By: rsaueia- <rsaueia-@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/11 17:08:23 by rsaueia-          #+#    #+#             */
-/*   Updated: 2024/04/27 15:56:47 by rsaueia-         ###   ########.fr       */
+/*   Updated: 2024/04/29 20:17:10 by rsaueia-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,9 +54,13 @@ void	print_list(t_pile *list)
 	free(temp);
 }
 
+#include <string.h>
 int	main(int argc, char **argv)
 {
 	t_data	data;
+
+	//memset(&data, 0, sizeof(t_data));
+
 
 	//data = (t_data){0};
 	data.stack_a = NULL;
@@ -64,51 +68,47 @@ int	main(int argc, char **argv)
 	if (!data_init(&data, argc, argv))
 		return (1);	
 	if (sort_check(data.stack_a))
+	{
+		big_free(data.stack_a);
 		return (0);
+	}
 	index_set(data.stack_a);
-
-	//print_list(data.stack_a);
 	pile_sort(&data);
-/*	ft_printf("LISTA A: \n");
-	print_list(data.stack_a);
-	ft_printf("LISTA B: \n");
-	print_list(data.stack_b);*/
-
 	if (data.stack_b)
 		big_free(data.stack_b);
 	big_free(data.stack_a);
 	return (0);
-	//while (data->stack_a)
-		//printf("%d\n", data->stack_a->next->value);
-		//data->stack_a = data->stack_a->next;
-/*	
-	print_stack(&data); //BEFORE.
-	sa(&data);
-	print_stack(&data); //BEFORE.
-	ra(&data);
-	print_stack(&data); //BEFORE.
-	rra(&data);
-	print_stack(&data); //BEFORE.
-	pb(&data);
-	pb(&data);
-	pb(&data);
-	print_stack(&data); //BEFORE.
-	sb(&data);
-	print_stack(&data); //BEFORE.
-	rb(&data);
-	print_stack(&data); //BEFORE.
-	rrb(&data);
-	print_stack(&data); //BEFORE.
-	ss(&data);
-	print_stack(&data); //BEFORE.
-	rr(&data);
-	print_stack(&data); //BEFORE.
-	rrr(&data);
-	print_stack(&data); //BEFORE.
-	//pile_sort(&data);
-	//print_stack(&data); //AFTER.
-	return (0);*/
 }
+
+/*
+    print_stack(&data); //BEFORE.
+    sa(&data);
+    print_stack(&data); //BEFORE.
+    ra(&data);
+    print_stack(&data); //BEFORE.
+    rra(&data);
+    print_stack(&data); //BEFORE.
+    pb(&data);
+    pb(&data);
+    pb(&data);
+    print_stack(&data); //BEFORE.
+    sb(&data);
+    print_stack(&data); //BEFORE.
+    rb(&data);
+    print_stack(&data); //BEFORE.
+    rrb(&data);
+    print_stack(&data); //BEFORE.
+    ss(&data);
+    print_stack(&data); //BEFORE.
+    rr(&data);
+    print_stack(&data); //BEFORE.
+    rrr(&data);
+    print_stack(&data); //BEFORE.
+    //pile_sort(&data);
+    //print_stack(&data); //AFTER.
+    return (0);*/
+
+
 /*
 int position = func(a);
 position = 3;

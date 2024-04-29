@@ -5,52 +5,33 @@
 #                                                     +:+ +:+         +:+      #
 #    By: rsaueia- <rsaueia-@student.42.rio>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2024/04/17 19:24:03 by rsaueia-          #+#    #+#              #
-#    Updated: 2024/04/29 20:04:49 by rsaueia-         ###   ########.fr        #
+#    Created: 2023/12/04 15:26:46 by rsaueia-          #+#    #+#              #
+#    Updated: 2023/12/05 19:36:54 by rsaueia-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = push_swap
-
-SRC = general_utils.c \
-	  index_set.c \
-	  initializer.c \
-	  main.c \
-	  operation_aux.c \
-	  operations.c \
-	  sorter.c
+SRC = ft_printf.c printf_aux.c printf_pointer.c
 
 OBJS = $(SRC:.c=.o)
 
-CC = gcc
+NAME = libftprintf.a
 
-CFLAGS = -Wall -Wextra -Werror -g
+CC = cc
 
-RM = rm -f
+CFLAGS = -Wall -Wextra -Werror
 
-PRINTF_PATH = printf
-
-PRINTF_ARCHIVE = $(PRINTF_PATH)/libftprintf.a
-
-$(NAME): $(PRINTF_ARCHIVE) $(NAME)
-	ar rcs $(NAME)
-
-all: $(NAME)
+all : $(NAME)
 
 $(NAME): $(OBJS)
-	$(CC) $(CFLAGS) $(OBJS) $(PRINTF_ARCHIVE) -o $(NAME)
+	ar -rc $(NAME) $(OBJS)
 
-$(PRINTF_ARCHIVE):
-	make -C $(PRINTF_PATH)
+.c.o:
+	$(CC) $(CFLAGS) -c $<
 
 clean:
-	make -C $(PRINTF_PATH) clean
-	$(RM) $(OBJS)
+	rm -f $(OBJS)
 
 fclean: clean
-	make -C $(PRINTF_PATH) fclean
-	$(RM) $(OBJS) $(NAME)
+	rm -f $(NAME)
 
 re: fclean all
-
-.PHONY: all clean fclean re

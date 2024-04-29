@@ -6,21 +6,11 @@
 /*   By: rsaueia- <rsaueia-@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/20 17:08:23 by rsaueia-          #+#    #+#             */
-/*   Updated: 2024/04/25 19:49:22 by rsaueia-         ###   ########.fr       */
+/*   Updated: 2024/04/29 20:36:55 by rsaueia-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-int	ft_strlen(char *str)
-{
-	int	i;
-
-	i = 0;
-	while (str[i])
-		i++;
-	return (i);
-}
 
 int	sort_check(t_pile *stack)
 {
@@ -50,35 +40,11 @@ int	size_check(t_pile *stack)
 	return (size);
 }
 
-/*long int	ft_atol(char *str)
-{
-	int	sign;
-	int	nbr;
-
-	sign = 1;
-	nbr = 0;
-	while ((*str >= 7 && *str <= 13) || *str == ' ')
-		str++;
-	if (*str == '-' || *str == '+')
-	{
-		if (*str == '-')
-			sign *= -1;
-		str++;
-	}
-	while (*str && (*str >= '0' && *str <= 9))
-	{
-		nbr = nbr * 10 + (*str - '0');
-		str++;
-	}
-	printf("%d\n", nbr);
-	return (nbr * sign);
-}*/
-
 long int	ft_atol(char *nptr)
 {
 	int	index;
 	int	signal;
-	int	number;
+	long	int	number;
 
 	index = 0;
 	signal = 1;
@@ -88,7 +54,7 @@ long int	ft_atol(char *nptr)
 	if (nptr[index] == '+' || nptr[index] == '-')
 	{
 		if (nptr[index] == '-')
-			signal = -signal;
+			signal *= -1 ;
 		index++;
 	}
 	while (nptr[index] >= '0' && nptr[index] <= '9')
@@ -96,17 +62,18 @@ long int	ft_atol(char *nptr)
 		number = (number * 10) + (nptr[index] - 48);
 		index++;
 	}
-	number = number * signal;
+	number = number * (long int)signal;
 	return (number);
 }
 
+#include <stdio.h>
 int	min_or_max(char *str)
 {
 	long int	nbr;
 
-	if (ft_strlen(str) > 11)
-		return (0);
 	nbr = ft_atol(str);
+	printf("%ld\n", nbr);
+	
 	if (nbr > 2147483647 || nbr < -2147483648)
 		return (0);
 	return (1);
