@@ -6,7 +6,7 @@
 /*   By: rsaueia- <rsaueia-@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/20 17:08:23 by rsaueia-          #+#    #+#             */
-/*   Updated: 2024/04/29 20:36:55 by rsaueia-         ###   ########.fr       */
+/*   Updated: 2024/04/29 20:58:56 by rsaueia-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,9 +42,9 @@ int	size_check(t_pile *stack)
 
 long int	ft_atol(char *nptr)
 {
-	int	index;
-	int	signal;
-	long	int	number;
+	int			index;
+	int			signal;
+	long int	number;
 
 	index = 0;
 	signal = 1;
@@ -66,14 +66,11 @@ long int	ft_atol(char *nptr)
 	return (number);
 }
 
-#include <stdio.h>
 int	min_or_max(char *str)
 {
 	long int	nbr;
 
 	nbr = ft_atol(str);
-	printf("%ld\n", nbr);
-	
 	if (nbr > 2147483647 || nbr < -2147483648)
 		return (0);
 	return (1);

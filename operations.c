@@ -6,7 +6,7 @@
 /*   By: rsaueia- <rsaueia-@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/23 16:20:36 by rsaueia-          #+#    #+#             */
-/*   Updated: 2024/04/27 17:58:47 by rsaueia-         ###   ########.fr       */
+/*   Updated: 2024/04/29 20:59:49 by rsaueia-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,10 +44,6 @@ void	pa(t_pile **stack_b, t_pile **stack_a)
 void	pb(t_pile **stack_a, t_pile **stack_b)
 {
 	push(stack_a, stack_b);
-	//ft_printf("stack a: \n");
-	//print_list(*stack_a);
-	//ft_printf("stack b: \n");
-//	print_list(*stack_b);
 	ft_printf("pb\n");
 }
 

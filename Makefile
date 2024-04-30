@@ -6,7 +6,7 @@
 #    By: rsaueia- <rsaueia-@student.42.rio>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/04/17 19:24:03 by rsaueia-          #+#    #+#              #
-#    Updated: 2024/04/29 20:04:49 by rsaueia-         ###   ########.fr        #
+#    Updated: 2024/04/29 21:05:01 by rsaueia-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,8 +17,11 @@ SRC = general_utils.c \
 	  initializer.c \
 	  main.c \
 	  operation_aux.c \
-	  operations.c \
-	  sorter.c
+	  swap_ops.c \
+	  sorter.c \
+	  push_ops.c \
+	  reverse_ops.c \
+	  revrot.c
 
 OBJS = $(SRC:.c=.o)
 

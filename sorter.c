@@ -6,7 +6,7 @@
 /*   By: rsaueia- <rsaueia-@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/20 17:39:23 by rsaueia-          #+#    #+#             */
-/*   Updated: 2024/04/29 20:37:39 by rsaueia-         ###   ########.fr       */
+/*   Updated: 2024/04/29 20:57:06 by rsaueia-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,12 +34,11 @@ void	three_nodes(t_pile **a)
 {
 	int	first;
 	int	second;
-	int third;
+	int	third;
 
 	first = (*a)->value;
 	second = (*a)->next->value;
 	third = (*a)->next->next->value;
-
 	if (first < second && first < third && second > third)
 	{
 		sa(a);
@@ -70,7 +69,6 @@ void	four_or_five(t_pile **a, t_pile **b, int size)
 		else
 			ra(a);
 		len--;
-		//print_list(*a);
 	}
 	if ((*b)->index == 1 && size == 5)
 		sb(b);
@@ -80,28 +78,24 @@ void	four_or_five(t_pile **a, t_pile **b, int size)
 		pa(b, a);
 }
 
-
 void	big_sort(t_pile **a, t_pile **b)
 {
 	int	bin;
-	
+
 	bin = 1;
-	//pb (a, b);
-	//print_list(*a);
-	//return ;
 	while (sort_check(*a) != 1)
 	{
 		radix_sort(a, b, bin);
 		bin = bin << 1;
 	}
-	//ft_printf("valor binario: %d\n", bin);
 }	
 
 void	radix_sort(t_pile **a, t_pile **b, int bin)
 {
 	int	size;
-	int	count = 0;
-	
+	int	count;
+
+	count = 0;
 	size = size_check(*a);
 	while (*a && size != 0)
 	{
