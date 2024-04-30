@@ -6,7 +6,7 @@
 #    By: rsaueia- <rsaueia-@student.42.rio>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/04/17 19:24:03 by rsaueia-          #+#    #+#              #
-#    Updated: 2024/04/29 21:05:01 by rsaueia-         ###   ########.fr        #
+#    Updated: 2024/04/30 18:17:36 by rsaueia-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,9 +25,9 @@ SRC = general_utils.c \
 
 OBJS = $(SRC:.c=.o)
 
-CC = gcc
+CC = cc
 
-CFLAGS = -Wall -Wextra -Werror -g
+CFLAGS = -Wall -Wextra -Werror
 
 RM = rm -f
 
