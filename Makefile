@@ -21,7 +21,7 @@ SRC = general_utils.c \
 	  sorter.c \
 	  push_ops.c \
 	  reverse_ops.c \
-	  revrot.c
+	  revrot_ops.c
 
 OBJS = $(SRC:.c=.o)
 
